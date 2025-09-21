@@ -141,7 +141,7 @@
 
         .loader-bar {
             height: 100%;
-            width: 0%;
+            width: 20%; /* Lățime redusă la 20% */
             background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
             border-radius: 15px;
             animation: loading 3s ease-in-out infinite;
@@ -149,9 +149,9 @@
         }
 
         @keyframes loading {
-            0% { width: 0%; }
-            50% { width: 70%; }
-            100% { width: 100%; }
+            0% { width: 20%; }
+            50% { width: 40%; }
+            100% { width: 20%; }
         }
 
         .loading-text {
@@ -656,28 +656,27 @@
             
             let currentTipIndex = 0;
             let tipInterval;
-            
-            // Variabile pentru efectele de scroll
-            let lastScrollY = 0;
-            let lastScrollTime = Date.now();
-            let scrollVelocity = 0;
+            let typeWriterInterval;
             
             // Funcție pentru a afișa un sfat cu animație de scriere
             function showTipWithAnimation() {
                 const hintElement = document.getElementById('hint-text');
                 const tip = scriptingTips[currentTipIndex];
                 
+                // Șterge orice interval de scriere existent
+                clearInterval(typeWriterInterval);
+                
                 // Șterge textul curent
                 hintElement.textContent = "";
                 
                 // Animație de scriere (typewriter)
                 let i = 0;
-                const typeWriter = setInterval(function() {
+                typeWriterInterval = setInterval(function() {
                     if (i < tip.length) {
                         hintElement.textContent += tip.charAt(i);
                         i++;
                     } else {
-                        clearInterval(typeWriter);
+                        clearInterval(typeWriterInterval);
                     }
                 }, 50); // Viteza de scriere
                 
@@ -698,6 +697,8 @@
                     
                     // Începe afișarea sfaturilor
                     showTipWithAnimation();
+                    
+                    // Setează intervalul pentru schimbarea sfaturilor
                     tipInterval = setInterval(showTipWithAnimation, 10000); // Schimbă la fiecare 10 secunde
                 }, 800);
             }, 3000);
@@ -759,24 +760,15 @@
             let scrollTimeout;
             window.addEventListener('scroll', function() {
                 const scrollY = window.scrollY;
-                const currentTime = Date.now();
-                const timeDiff = currentTime - lastScrollTime;
                 
-                // Calculează viteza de scroll
-                scrollVelocity = Math.abs(scrollY - lastScrollY) / (timeDiff || 1) * 15;
-                
-                // Actualizează valorile pentru următorul frame
-                lastScrollY = scrollY;
-                lastScrollTime = currentTime;
-                
-                // Aplică efectele în funcție de viteză
+                // Aplică efectele în funcție de poziția de scroll
                 const physicsElements = document.querySelectorAll('.physics-element');
                 
                 physicsElements.forEach(element => {
                     // Intensitatea efectului bazată pe viteză
-                    const intensity = Math.min(scrollVelocity * 2, 20);
+                    const intensity = Math.min(scrollY * 0.02, 10);
                     
-                    // Aplică rotație și translație în funcție de viteză
+                    // Aplică rotație și translație în funcție de scroll
                     element.style.transform = `translateY(${scrollY * 0.1}px) rotate(${intensity * 0.3}deg)`;
                 });
                 
@@ -799,9 +791,10 @@
                 }, 100);
             });
             
-            // Curăță intervalul când pagina este închisă
+            // Curăță intervalele când pagina este închisă
             window.addEventListener('beforeunload', function() {
                 clearInterval(tipInterval);
+                clearInterval(typeWriterInterval);
             });
         });
     </script>
