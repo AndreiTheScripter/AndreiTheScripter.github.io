@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site în Mentenanță - AndreiTheScripter</title>
+    <title>Site Under Maintenance - AndreiTheScripter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -32,7 +32,7 @@
             position: relative;
         }
 
-        /* Pattern de fundal low-poly */
+        /* Low-poly background */
         .low-poly-bg {
             position: fixed;
             top: 0;
@@ -212,7 +212,7 @@
             50% { transform: translateY(-15px); }
         }
 
-        /* Container principal */
+        /* Main container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -225,7 +225,7 @@
             opacity: 1;
         }
 
-        /* Header cu nume */
+        /* Name header */
         .name-header {
             position: fixed;
             top: 20px;
@@ -241,7 +241,7 @@
             transition: transform 0.5s ease;
         }
 
-        /* Bara de navigare */
+        /* Navigation bar */
         .navbar {
             position: fixed;
             top: 0;
@@ -279,7 +279,7 @@
             transform: translateY(-2px);
         }
 
-        /* Conținut principal */
+        /* Main content */
         .main-content {
             min-height: 100vh;
             display: flex;
@@ -346,7 +346,7 @@
             100% { width: 68%; }
         }
 
-        /* Hint-uri de scripting */
+        /* Scripting hints */
         .hint-container {
             margin-top: 30px;
             min-height: 80px;
@@ -398,7 +398,7 @@
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* Butonul de setări */
+        /* Settings button */
         .settings-btn {
             position: fixed;
             bottom: 20px;
@@ -423,7 +423,7 @@
             transform: rotate(45deg) scale(1.1);
         }
 
-        /* Panoul de setări */
+        /* Settings panel */
         .settings-panel {
             position: fixed;
             bottom: 80px;
@@ -505,7 +505,7 @@
             to { opacity: 1; }
         }
 
-        /* Efecte de parallax */
+        /* Parallax effects */
         .parallax-element {
             transition: transform 0.5s ease-out;
         }
@@ -564,7 +564,7 @@
         </div>
     </div>
 
-    <!-- Fundal low-poly -->
+    <!-- Low-poly background -->
     <div class="low-poly-bg">
         <div class="polygon"></div>
         <div class="polygon"></div>
@@ -573,10 +573,10 @@
         <div class="polygon"></div>
     </div>
 
-    <!-- Header cu nume -->
+    <!-- Name header -->
     <div class="name-header parallax-element">AndreiTheScripter Portfolio</div>
 
-    <!-- Bara de navigare -->
+    <!-- Navigation bar -->
     <nav class="navbar parallax-element">
         <div class="nav-container">
             <a href="https://twitter.com/ScripterAndrei" target="_blank" class="nav-item">
@@ -588,7 +588,7 @@
         </div>
     </nav>
 
-    <!-- Conținut principal -->
+    <!-- Main content -->
     <div class="container" id="main-container">
         <main class="main-content">
             <div class="tools-icon parallax-element">
@@ -601,7 +601,7 @@
                 <div class="progress-bar"></div>
             </div>
             
-            <!-- Container pentru hint-uri -->
+            <!-- Hint container -->
             <div class="hint-container parallax-element">
                 <div class="hint-box">
                     <div class="hint-icon">
@@ -615,12 +615,12 @@
         </main>
     </div>
 
-    <!-- Butonul de setări -->
+    <!-- Settings button -->
     <button class="settings-btn" id="settings-btn">
         <i class="fas fa-cog"></i>
     </button>
 
-    <!-- Panoul de setări -->
+    <!-- Settings panel -->
     <div class="settings-panel" id="settings-panel">
         <div class="settings-header">
             <h3 class="settings-title">Maintenance Settings</h3>
@@ -653,27 +653,27 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Array cu sfaturi de scripting Roblox
+            // Array with Roblox scripting tips in English
             const scriptingTips = [
-                "Folosește 'local' în loc de 'global' pentru variabilele folosite doar în acel script pentru performanță mai bună.",
-                "Optimizează scripturile folosind 'debounce' pentru a preveni apelarea excesivă a evenimentelor.",
-                "ModuleScripts sunt prietenii tăi! Încapsulează codul pentru reutilizare și organizare mai bună.",
-                "Folosește 'task.wait()' în loc de 'wait()' pentru o gestionare mai precisă a timpului.",
-                "Întotdeauna curăță conexiunile la evenimente (connections) când nu mai sunt necesare pentru a preveni scurgerile de memorie."
+                "Use 'local' instead of 'global' for variables used only in that script for better performance.",
+                "Optimize scripts using 'debounce' to prevent excessive event calling.",
+                "ModuleScripts are your friends! Encapsulate code for better reuse and organization.",
+                "Use 'task.wait()' instead of 'wait()' for more precise timing management.",
+                "Always clean up event connections when they're no longer needed to prevent memory leaks."
             ];
             
             let currentTipIndex = 0;
             let tipInterval;
             
-            // Funcție pentru a afișa un sfat cu animație de scriere
+            // Function to display a tip with typewriter animation
             function showTipWithAnimation() {
                 const hintElement = document.getElementById('hint-text');
                 const tip = scriptingTips[currentTipIndex];
                 
-                // Șterge textul curent
+                // Clear current text
                 hintElement.textContent = "";
                 
-                // Animație de scriere (typewriter)
+                // Typewriter animation
                 let i = 0;
                 const typeWriter = setInterval(function() {
                     if (i < tip.length) {
@@ -682,13 +682,13 @@
                     } else {
                         clearInterval(typeWriter);
                     }
-                }, 50); // Viteza de scriere
+                }, 50); // Typing speed
                 
-                // Treci la următorul sfat (sau revino la primul)
+                // Move to next tip (or back to first)
                 currentTipIndex = (currentTipIndex + 1) % scriptingTips.length;
             }
             
-            // Ascunde loading screen-ul după 3 secunde
+            // Hide loading screen after 3 seconds
             setTimeout(function() {
                 const loadingScreen = document.getElementById('loading-screen');
                 const mainContainer = document.getElementById('main-container');
@@ -699,13 +699,13 @@
                     loadingScreen.style.display = 'none';
                     mainContainer.classList.add('visible');
                     
-                    // Începe afișarea sfaturilor
+                    // Start showing tips
                     showTipWithAnimation();
-                    tipInterval = setInterval(showTipWithAnimation, 10000); // Schimbă la fiecare 10 secunde
+                    tipInterval = setInterval(showTipWithAnimation, 10000); // Change every 10 seconds
                 }, 800);
             }, 3000);
             
-            // Funcționalitate pentru butonul de setări
+            // Settings button functionality
             const settingsBtn = document.getElementById('settings-btn');
             const settingsPanel = document.getElementById('settings-panel');
             const closeSettings = document.getElementById('close-settings');
@@ -718,14 +718,14 @@
                 settingsPanel.classList.remove('open');
             });
             
-            // Funcționalitate pentru link-ul de Discord
+            // Discord link functionality
             const discordLink = document.getElementById('discord-link');
             discordLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 alert('Discord: _.andreip._');
             });
             
-            // Schimbare temă
+            // Theme change
             const themeSelect = document.getElementById('theme-select');
             themeSelect.addEventListener('change', function() {
                 if (this.value === 'purple') {
@@ -746,7 +746,7 @@
                 }
             });
             
-            // Schimbare viteză animații
+            // Animation speed change
             const animationSelect = document.getElementById('animation-speed');
             animationSelect.addEventListener('change', function() {
                 if (this.value === 'fast') {
@@ -758,20 +758,20 @@
                 }
             });
             
-            // Efect de parallax la scroll
+            // Parallax effect on scroll
             let scrollTimeout;
             window.addEventListener('scroll', function() {
-                // Animează elementele la scroll
+                // Animate elements on scroll
                 const scrollY = window.scrollY;
                 const parallaxElements = document.querySelectorAll('.parallax-element');
                 
                 parallaxElements.forEach(element => {
-                    const speed = 0.1; // Viteza de deplasare (ajustabilă)
+                    const speed = 0.1; // Movement speed (adjustable)
                     const offset = scrollY * speed;
                     element.style.transform = `translateY(${offset}px)`;
                 });
                 
-                // Opacitatea header-ului la scroll
+                // Header opacity on scroll
                 const nameHeader = document.querySelector('.name-header');
                 const navbar = document.querySelector('.navbar');
                 
@@ -783,17 +783,17 @@
                     navbar.style.opacity = '1';
                 }
                 
-                // Clear timeout pentru a preveni executarea multiplă
+                // Clear timeout to prevent multiple executions
                 clearTimeout(scrollTimeout);
                 
-                // Readu elementele la poziția inițială după ce scroll-ul s-a oprit
+                // Return elements to initial position after scrolling stops
                 scrollTimeout = setTimeout(function() {
                     parallaxElements.forEach(element => {
                         element.style.transform = 'translateY(0)';
                         element.style.transition = 'transform 0.5s ease-out';
                     });
                     
-                    // După ce animația s-a terminat, resetează tranziția
+                    // After animation is done, reset transition
                     setTimeout(function() {
                         parallaxElements.forEach(element => {
                             element.style.transition = '';
@@ -802,7 +802,7 @@
                 }, 100);
             });
             
-            // Curăță intervalul când pagina este închisă
+            // Clean up interval when page is closed
             window.addEventListener('beforeunload', function() {
                 clearInterval(tipInterval);
             });
