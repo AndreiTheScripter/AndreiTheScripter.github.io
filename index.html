@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Under Maintenance - AndreiTheScripter</title>
+    <title>Site în Mentenanță - AndreiTheScripter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -30,9 +30,10 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            perspective: 1000px;
         }
 
-        /* Low-poly background */
+        /* Low-poly background with animation */
         .low-poly-bg {
             position: fixed;
             top: 0;
@@ -111,7 +112,7 @@
             }
         }
 
-        /* Loading screen */
+        /* Improved loading screen */
         #loading-screen {
             position: fixed;
             top: 0;
@@ -127,49 +128,34 @@
             transition: opacity 0.8s ease-out;
         }
 
-        .loader {
+        .loader-container {
+            width: 300px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
             position: relative;
-            width: 120px;
-            height: 120px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
         }
 
-        .loader-inner {
-            position: absolute;
-            border: 4px solid transparent;
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            width: 100%;
+        .loader-bar {
             height: 100%;
-            animation: spin 1.5s linear infinite;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            border-radius: 15px;
+            animation: loading 3s ease-in-out infinite;
+            transition: width 0.3s ease;
         }
 
-        .loader-inner:nth-child(2) {
-            border: 4px solid transparent;
-            border-top: 4px solid var(--accent);
-            animation: spin 2s linear infinite reverse;
-            width: 90%;
-            height: 90%;
-            top: 5%;
-            left: 5%;
-        }
-
-        .loader-inner:nth-child(3) {
-            border: 4px solid transparent;
-            border-top: 4px solid var(--secondary);
-            animation: spin 2.5s linear infinite;
-            width: 80%;
-            height: 80%;
-            top: 10%;
-            left: 10%;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
         }
 
         .loading-text {
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 1.5rem;
             letter-spacing: 5px;
             color: var(--secondary);
@@ -189,22 +175,26 @@
         }
 
         .loading-dots span {
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
-            background: var(--primary);
+            width: 15px;
+            height: 15px;
+            margin: 0 8px;
             border-radius: 50%;
             animation: bounce 1.5s infinite ease-in-out;
         }
 
+        .loading-dots span:nth-child(1) {
+            background: var(--primary);
+            animation-delay: 0s;
+        }
+
         .loading-dots span:nth-child(2) {
-            animation-delay: 0.2s;
             background: var(--accent);
+            animation-delay: 0.2s;
         }
 
         .loading-dots span:nth-child(3) {
-            animation-delay: 0.4s;
             background: var(--secondary);
+            animation-delay: 0.4s;
         }
 
         @keyframes bounce {
@@ -212,7 +202,7 @@
             50% { transform: translateY(-15px); }
         }
 
-        /* Main container */
+        /* Container principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -225,7 +215,7 @@
             opacity: 1;
         }
 
-        /* Name header */
+        /* Header cu nume */
         .name-header {
             position: fixed;
             top: 20px;
@@ -238,10 +228,10 @@
             background: rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             backdrop-filter: blur(10px);
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Navigation bar */
+        /* Bara de navigare */
         .navbar {
             position: fixed;
             top: 0;
@@ -253,7 +243,7 @@
             z-index: 99;
             display: flex;
             justify-content: center;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .nav-container {
@@ -279,7 +269,7 @@
             transform: translateY(-2px);
         }
 
-        /* Main content */
+        /* Conținut principal */
         .main-content {
             min-height: 100vh;
             display: flex;
@@ -297,7 +287,7 @@
             color: var(--primary);
             text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
             letter-spacing: 2px;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .main-subtitle {
@@ -306,7 +296,7 @@
             color: var(--light);
             max-width: 600px;
             line-height: 1.6;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .tools-icon {
@@ -314,7 +304,7 @@
             color: var(--accent);
             margin-bottom: 30px;
             animation: float 3s ease-in-out infinite;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         @keyframes float {
@@ -330,7 +320,7 @@
             border-radius: 10px;
             overflow: hidden;
             margin: 30px 0;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .progress-bar {
@@ -346,7 +336,7 @@
             100% { width: 68%; }
         }
 
-        /* Scripting hints */
+        /* Hint-uri de scripting */
         .hint-container {
             margin-top: 30px;
             min-height: 80px;
@@ -356,7 +346,7 @@
             width: 100%;
             max-width: 700px;
             position: relative;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .hint-box {
@@ -398,7 +388,7 @@
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* Settings button */
+        /* Butonul de setări */
         .settings-btn {
             position: fixed;
             bottom: 20px;
@@ -423,7 +413,7 @@
             transform: rotate(45deg) scale(1.1);
         }
 
-        /* Settings panel */
+        /* Panoul de setări */
         .settings-panel {
             position: fixed;
             bottom: 80px;
@@ -496,7 +486,7 @@
             margin-top: auto;
             font-size: 0.9rem;
             color: var(--light);
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         /* Animations */
@@ -505,9 +495,9 @@
             to { opacity: 1; }
         }
 
-        /* Parallax effects */
-        .parallax-element {
-            transition: transform 0.5s ease-out;
+        /* Efecte de scroll physics */
+        .physics-element {
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         /* Responsive design */
@@ -545,16 +535,18 @@
             .polygon {
                 transform: scale(0.7);
             }
+            
+            .loader-container {
+                width: 250px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Loading Screen -->
     <div id="loading-screen">
-        <div class="loader">
-            <div class="loader-inner"></div>
-            <div class="loader-inner"></div>
-            <div class="loader-inner"></div>
+        <div class="loader-container">
+            <div class="loader-bar"></div>
         </div>
         <div class="loading-text">LOADING</div>
         <div class="loading-dots">
@@ -564,7 +556,7 @@
         </div>
     </div>
 
-    <!-- Low-poly background -->
+    <!-- Fundal low-poly -->
     <div class="low-poly-bg">
         <div class="polygon"></div>
         <div class="polygon"></div>
@@ -573,11 +565,11 @@
         <div class="polygon"></div>
     </div>
 
-    <!-- Name header -->
-    <div class="name-header parallax-element">AndreiTheScripter Portfolio</div>
+    <!-- Header cu nume -->
+    <div class="name-header physics-element">AndreiTheScripter Portfolio</div>
 
-    <!-- Navigation bar -->
-    <nav class="navbar parallax-element">
+    <!-- Bara de navigare -->
+    <nav class="navbar physics-element">
         <div class="nav-container">
             <a href="https://twitter.com/ScripterAndrei" target="_blank" class="nav-item">
                 <i class="fab fa-twitter"></i> Twitter
@@ -588,21 +580,21 @@
         </div>
     </nav>
 
-    <!-- Main content -->
+    <!-- Conținut principal -->
     <div class="container" id="main-container">
         <main class="main-content">
-            <div class="tools-icon parallax-element">
+            <div class="tools-icon physics-element">
                 <i class="fas fa-tools"></i>
             </div>
-            <h1 class="main-title parallax-element">Site Under Maintenance</h1>
-            <p class="main-subtitle parallax-element">We're working hard to improve our website. We'll be back soon with an amazing portfolio experience!</p>
+            <h1 class="main-title physics-element">Site Under Maintenance</h1>
+            <p class="main-subtitle physics-element">We're working hard to improve our website. We'll be back soon with an amazing portfolio experience!</p>
             
-            <div class="progress-container parallax-element">
+            <div class="progress-container physics-element">
                 <div class="progress-bar"></div>
             </div>
             
-            <!-- Hint container -->
-            <div class="hint-container parallax-element">
+            <!-- Container pentru hint-uri -->
+            <div class="hint-container physics-element">
                 <div class="hint-box">
                     <div class="hint-icon">
                         <i class="fas fa-lightbulb"></i>
@@ -611,16 +603,16 @@
                 </div>
             </div>
             
-            <p class="parallax-element">Thank you for your patience!</p>
+            <p class="physics-element">Thank you for your patience!</p>
         </main>
     </div>
 
-    <!-- Settings button -->
+    <!-- Butonul de setări -->
     <button class="settings-btn" id="settings-btn">
         <i class="fas fa-cog"></i>
     </button>
 
-    <!-- Settings panel -->
+    <!-- Panoul de setări -->
     <div class="settings-panel" id="settings-panel">
         <div class="settings-header">
             <h3 class="settings-title">Maintenance Settings</h3>
@@ -647,16 +639,16 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer parallax-element">
+    <footer class="footer physics-element">
         <p>&copy; 2025 AndreiTheScripter. All rights reserved. | Professional Roblox Developer Portfolio</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Array with Roblox scripting tips in English
+            // Array cu sfaturi de scripting Roblox (în engleză)
             const scriptingTips = [
                 "Use 'local' instead of 'global' for variables used only in that script for better performance.",
-                "Optimize scripts using 'debounce' to prevent excessive event calling.",
+                "Optimize scripts using 'debounce' to prevent excessive event calls.",
                 "ModuleScripts are your friends! Encapsulate code for better reuse and organization.",
                 "Use 'task.wait()' instead of 'wait()' for more precise timing management.",
                 "Always clean up event connections when they're no longer needed to prevent memory leaks."
@@ -665,15 +657,20 @@
             let currentTipIndex = 0;
             let tipInterval;
             
-            // Function to display a tip with typewriter animation
+            // Variabile pentru efectele de scroll
+            let lastScrollY = 0;
+            let lastScrollTime = Date.now();
+            let scrollVelocity = 0;
+            
+            // Funcție pentru a afișa un sfat cu animație de scriere
             function showTipWithAnimation() {
                 const hintElement = document.getElementById('hint-text');
                 const tip = scriptingTips[currentTipIndex];
                 
-                // Clear current text
+                // Șterge textul curent
                 hintElement.textContent = "";
                 
-                // Typewriter animation
+                // Animație de scriere (typewriter)
                 let i = 0;
                 const typeWriter = setInterval(function() {
                     if (i < tip.length) {
@@ -682,13 +679,13 @@
                     } else {
                         clearInterval(typeWriter);
                     }
-                }, 50); // Typing speed
+                }, 50); // Viteza de scriere
                 
-                // Move to next tip (or back to first)
+                // Treci la următorul sfat (sau revino la primul)
                 currentTipIndex = (currentTipIndex + 1) % scriptingTips.length;
             }
             
-            // Hide loading screen after 3 seconds
+            // Ascunde loading screen-ul după 3 secunde
             setTimeout(function() {
                 const loadingScreen = document.getElementById('loading-screen');
                 const mainContainer = document.getElementById('main-container');
@@ -699,13 +696,13 @@
                     loadingScreen.style.display = 'none';
                     mainContainer.classList.add('visible');
                     
-                    // Start showing tips
+                    // Începe afișarea sfaturilor
                     showTipWithAnimation();
-                    tipInterval = setInterval(showTipWithAnimation, 10000); // Change every 10 seconds
+                    tipInterval = setInterval(showTipWithAnimation, 10000); // Schimbă la fiecare 10 secunde
                 }, 800);
             }, 3000);
             
-            // Settings button functionality
+            // Funcționalitate pentru butonul de setări
             const settingsBtn = document.getElementById('settings-btn');
             const settingsPanel = document.getElementById('settings-panel');
             const closeSettings = document.getElementById('close-settings');
@@ -718,14 +715,14 @@
                 settingsPanel.classList.remove('open');
             });
             
-            // Discord link functionality
+            // Funcționalitate pentru link-ul de Discord
             const discordLink = document.getElementById('discord-link');
             discordLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 alert('Discord: _.andreip._');
             });
             
-            // Theme change
+            // Schimbare temă
             const themeSelect = document.getElementById('theme-select');
             themeSelect.addEventListener('change', function() {
                 if (this.value === 'purple') {
@@ -746,7 +743,7 @@
                 }
             });
             
-            // Animation speed change
+            // Schimbare viteză animații
             const animationSelect = document.getElementById('animation-speed');
             animationSelect.addEventListener('change', function() {
                 if (this.value === 'fast') {
@@ -758,51 +755,51 @@
                 }
             });
             
-            // Parallax effect on scroll
+            // Efecte de scroll physics
             let scrollTimeout;
             window.addEventListener('scroll', function() {
-                // Animate elements on scroll
                 const scrollY = window.scrollY;
-                const parallaxElements = document.querySelectorAll('.parallax-element');
+                const currentTime = Date.now();
+                const timeDiff = currentTime - lastScrollTime;
                 
-                parallaxElements.forEach(element => {
-                    const speed = 0.1; // Movement speed (adjustable)
-                    const offset = scrollY * speed;
-                    element.style.transform = `translateY(${offset}px)`;
+                // Calculează viteza de scroll
+                scrollVelocity = Math.abs(scrollY - lastScrollY) / (timeDiff || 1) * 15;
+                
+                // Actualizează valorile pentru următorul frame
+                lastScrollY = scrollY;
+                lastScrollTime = currentTime;
+                
+                // Aplică efectele în funcție de viteză
+                const physicsElements = document.querySelectorAll('.physics-element');
+                
+                physicsElements.forEach(element => {
+                    // Intensitatea efectului bazată pe viteză
+                    const intensity = Math.min(scrollVelocity * 2, 20);
+                    
+                    // Aplică rotație și translație în funcție de viteză
+                    element.style.transform = `translateY(${scrollY * 0.1}px) rotate(${intensity * 0.3}deg)`;
                 });
                 
-                // Header opacity on scroll
-                const nameHeader = document.querySelector('.name-header');
-                const navbar = document.querySelector('.navbar');
-                
-                if (scrollY > 50) {
-                    nameHeader.style.opacity = '0.7';
-                    navbar.style.opacity = '0.9';
-                } else {
-                    nameHeader.style.opacity = '1';
-                    navbar.style.opacity = '1';
-                }
-                
-                // Clear timeout to prevent multiple executions
+                // Clear timeout pentru a preveni executarea multiplă
                 clearTimeout(scrollTimeout);
                 
-                // Return elements to initial position after scrolling stops
+                // Readu elementele la poziția inițială după ce scroll-ul s-a oprit
                 scrollTimeout = setTimeout(function() {
-                    parallaxElements.forEach(element => {
-                        element.style.transform = 'translateY(0)';
-                        element.style.transition = 'transform 0.5s ease-out';
+                    physicsElements.forEach(element => {
+                        element.style.transform = 'translateY(0) rotate(0deg)';
+                        element.style.transition = 'transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)';
                     });
                     
-                    // After animation is done, reset transition
+                    // După ce animația s-a terminat, resetează tranziția
                     setTimeout(function() {
-                        parallaxElements.forEach(element => {
+                        physicsElements.forEach(element => {
                             element.style.transition = '';
                         });
-                    }, 500);
+                    }, 700);
                 }, 100);
             });
             
-            // Clean up interval when page is closed
+            // Curăță intervalul când pagina este închisă
             window.addEventListener('beforeunload', function() {
                 clearInterval(tipInterval);
             });
