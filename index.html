@@ -3,56 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AndreiTheScripter's Portfolio</title>
+    <title>AndreiTheScripter's Ultimate Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         :root {
             --primary: #6e45e2;
+            --primary-dark: #5937c4;
             --secondary: #88d3ce;
             --accent: #ff7e5f;
+            --accent-dark: #e06a4d;
             --dark: #1a1a2e;
+            --darker: #0d0d1a;
             --light: #f8f9fa;
+            --gray: #8a8a9c;
             --twitter: #1DA1F2;
             --discord: #5865F2;
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --danger: #F44336;
+            
             --background-image: none;
             --background-overlay: rgba(26, 26, 46, 0.8);
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-color: #f8f9fa;
             --header-bg: rgba(26, 26, 46, 0.8);
-            --font-family: 'Poppins', sans-serif;
+            --font-family: 'Montserrat', sans-serif;
+            --font-mono: 'Roboto Mono', monospace;
             --transition-speed: 0.4s;
             --border-radius: 15px;
             --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            --glow-intensity: 10px;
         }
 
         /* Low Poly Theme */
         [data-theme="low-poly"] {
             --primary: #FF6B6B;
+            --primary-dark: #e05a5a;
             --secondary: #4ECDC4;
             --accent: #FFE66D;
+            --accent-dark: #e6cf62;
             --dark: #1A1A2E;
+            --darker: #0d0d17;
             --light: #F8F9FA;
             --background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100 0,100" fill="%231A1A2E"/><polygon points="0,0 50,0 0,50" fill="%23FF6B6B" opacity="0.2"/><polygon points="100,0 100,50 50,0" fill="%234ECDC4" opacity="0.2"/><polygon points="0,100 0,50 50,100" fill="%23FFE66D" opacity="0.2"/><polygon points="100,100 50,100 100,50" fill="%23FF6B6B" opacity="0.2"/></svg>');
             --background-overlay: rgba(26, 26, 46, 0.85);
             --card-bg: rgba(0, 0, 0, 0.5);
             --header-bg: rgba(26, 26, 46, 0.9);
+            --glow-intensity: 15px;
         }
 
         /* Cartoon Theme */
         [data-theme="cartoon"] {
             --primary: #FF9A3D;
+            --primary-dark: #e08834;
             --secondary: #5BC0EB;
             --accent: #9BC53D;
+            --accent-dark: #8ab435;
             --dark: #342E37;
+            --darker: #1a171b;
             --light: #FAFFFD;
             --background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="%23342E37"/><circle cx="20" cy="20" r="10" fill="%23FF9A3D" opacity="0.2"/><circle cx="80" cy="30" r="15" fill="%235BC0EB" opacity="0.2"/><circle cx="40" cy="80" r="12" fill="%239BC53D" opacity="0.2"/></svg>');
             --background-overlay: rgba(52, 46, 55, 0.85);
@@ -60,9 +77,28 @@
             --header-bg: rgba(52, 46, 55, 0.9);
             --border-radius: 20px;
             --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            --glow-intensity: 8px;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        /* Cyber Theme */
+        [data-theme="cyber"] {
+            --primary: #00F3FF;
+            --primary-dark: #00c4cf;
+            --secondary: #FF00FF;
+            --accent: #39FF14;
+            --accent-dark: #2ce60f;
+            --dark: #0A0A18;
+            --darker: #050510;
+            --light: #FFFFFF;
+            --gray: #8a8a9c;
+            --background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100" height="100" fill="%230A0A18"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%2300F3FF" opacity="0.1" stroke-width="2"/><path d="M20,0 L20,100 M40,0 L40,100 M60,0 L60,100 M80,0 L80,100" stroke="%23FF00FF" opacity="0.1" stroke-width="1"/><path d="M0,20 L100,20 M0,40 L100,40 M0,60 L100,60 M0,80 L100,80" stroke="%2339FF14" opacity="0.1" stroke-width="1"/></svg>');
+            --background-overlay: rgba(10, 10, 24, 0.9);
+            --card-bg: rgba(0, 243, 255, 0.05);
+            --header-bg: rgba(10, 10, 24, 0.95);
+            --border-radius: 5px;
+            --card-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            --glow-intensity: 15px;
+        }
 
         body {
             background-color: var(--dark);
@@ -77,6 +113,11 @@
             background-size: cover;
             transition: background-color var(--transition-speed), color var(--transition-speed);
             font-family: var(--font-family);
+            line-height: 1.6;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
         }
 
         /* Enhanced Loading Screen */
@@ -86,7 +127,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--dark), #16213e, #0f3460);
+            background: linear-gradient(135deg, var(--dark), var(--darker));
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -222,6 +263,10 @@
             padding: 0 20px;
         }
 
+        .section {
+            padding: 100px 0;
+        }
+
         /* Header and navigation */
         header {
             background: var(--header-bg);
@@ -236,7 +281,7 @@
 
         header.scrolled {
             padding: 10px 0;
-            background: rgba(26, 26, 46, 0.95);
+            background: var(--header-bg);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -369,7 +414,7 @@
             animation: fadeInUp 1s forwards 1.1s;
         }
 
-        .hero-btn {
+        .btn {
             display: inline-block;
             padding: 12px 30px;
             background: linear-gradient(45deg, var(--primary), var(--accent));
@@ -382,9 +427,10 @@
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
-        .hero-btn:before {
+        .btn:before {
             content: '';
             position: absolute;
             top: 0;
@@ -395,23 +441,33 @@
             transition: 0.5s;
         }
 
-        .hero-btn:hover:before {
+        .btn:hover:before {
             left: 100%;
         }
 
-        .hero-btn:hover {
+        .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .hero-btn.secondary {
+        .btn-secondary {
             background: transparent;
             border: 2px solid var(--secondary);
             color: var(--secondary);
         }
 
-        .hero-btn.secondary:hover {
+        .btn-secondary:hover {
             background: rgba(136, 211, 206, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(110, 69, 226, 0.1);
         }
 
         .hero-bg {
@@ -459,6 +515,15 @@
             background: linear-gradient(to right, var(--primary), var(--accent));
         }
 
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--gray);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -475,6 +540,7 @@
             position: relative;
             backdrop-filter: blur(10px);
             box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .project-card:before {
@@ -548,6 +614,7 @@
         .project-desc {
             margin-bottom: 15px;
             color: #ccc;
+            font-size: 0.95rem;
         }
 
         .project-tags {
@@ -572,6 +639,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: transform 0.3s;
+            font-size: 0.9rem;
         }
 
         .project-link i {
@@ -677,6 +745,176 @@
             color: var(--secondary);
         }
 
+        /* Skills section */
+        .skills {
+            padding: 100px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-name {
+            font-size: 0.9rem;
+            color: var(--light);
+        }
+
+        .skill-percentage {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Timeline section */
+        .timeline {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-container:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-left: 30px;
+            padding-right: 0;
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            width: 100%;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timeline-content:after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+            background: var(--card-bg);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content:after {
+            right: auto;
+            left: -10px;
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .timeline-desc {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            right: -20px;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-icon {
+            right: auto;
+            left: -20px;
+        }
+
         /* Contact section */
         .contact {
             padding: 100px 0;
@@ -689,9 +927,11 @@
         }
 
         .contact-form {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--card-bg);
             padding: 30px;
-            border-radius: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .form-group {
@@ -712,7 +952,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             color: white;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             transition: all 0.3s;
         }
 
@@ -783,7 +1023,7 @@
 
         /* Footer */
         footer {
-            background: #0f0f1a;
+            background: var(--darker);
             padding: 50px 0 20px;
             text-align: center;
             position: relative;
@@ -870,6 +1110,7 @@
             overflow-y: auto;
             transition: right 0.4s ease;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .settings-panel.open {
@@ -1012,6 +1253,10 @@
             background: linear-gradient(135deg, #FF9A3D, #5BC0EB);
         }
 
+        .theme-cyber {
+            background: linear-gradient(135deg, #00F3FF, #FF00FF);
+        }
+
         .save-settings {
             display: block;
             width: 100%;
@@ -1039,17 +1284,18 @@
         }
 
         .game-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
             padding: 30px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .game-title {
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             color: var(--secondary);
         }
 
@@ -1058,22 +1304,28 @@
             color: #ccc;
         }
 
-        .game-canvas {
+        .game-canvas-container {
+            position: relative;
             width: 100%;
-            height: 300px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+        }
+
+        #game-canvas {
+            width: 100%;
+            height: 400px;
+            background: var(--darker);
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
         }
 
         .game-stats {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: var(--border-radius);
         }
 
         .game-stat {
@@ -1085,6 +1337,7 @@
             display: flex;
             gap: 10px;
             justify-content: center;
+            margin-bottom: 20px;
         }
 
         .game-btn {
@@ -1109,6 +1362,36 @@
             color: var(--secondary);
         }
 
+        .game-instructions {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .game-instructions h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .game-instructions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .game-instructions li {
+            margin-bottom: 8px;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .game-instructions li i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
         .return-btn {
             display: inline-block;
             margin-top: 30px;
@@ -1128,26 +1411,6 @@
             transform: translateY(-3px);
         }
 
-        /* Color Switch Game */
-        .color-game {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .color-game:hover {
-            transform: scale(1.05);
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -1157,6 +1420,18 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px var(--primary);
+            }
+            50% {
+                box-shadow: 0 0 20px var(--primary);
+            }
+            100% {
+                box-shadow: 0 0 5px var(--primary);
             }
         }
 
@@ -1205,6 +1480,30 @@
             .settings-panel {
                 width: 300px;
             }
+            
+            .timeline-container:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content:after {
+                right: auto;
+                left: -10px;
+            }
+            
+            .timeline-icon {
+                left: 10px;
+                right: auto;
+            }
         }
     </style>
 </head>
@@ -1235,6 +1534,8 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#timeline">Timeline</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#game" id="game-link">Game</a></li>
@@ -1266,6 +1567,7 @@
                     <option value="default">Default</option>
                     <option value="low-poly">Low Poly</option>
                     <option value="cartoon">Cartoon</option>
+                    <option value="cyber">Cyber</option>
                 </select>
             </div>
             
@@ -1275,6 +1577,7 @@
                     <div class="theme-option theme-default active" data-theme="default"></div>
                     <div class="theme-option theme-low-poly" data-theme="low-poly"></div>
                     <div class="theme-option theme-cartoon" data-theme="cartoon"></div>
+                    <div class="theme-option theme-cyber" data-theme="cyber"></div>
                 </div>
             </div>
             
@@ -1282,6 +1585,14 @@
                 <label for="animation-toggle">Animations</label>
                 <label class="toggle-switch">
                     <input type="checkbox" id="animation-toggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <label for="particles-toggle">Particles Effect</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="particles-toggle" checked>
                     <span class="slider"></span>
                 </label>
             </div>
@@ -1337,14 +1648,15 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero section">
         <div class="container">
             <div class="hero-content">
                 <h1>AndreiTheScripter's <span style="color: var(--accent)">Portfolio</span></h1>
                 <p>Welcome to my Roblox development portfolio. Explore my projects and discover my passion for game design and development.</p>
                 <div class="hero-btns">
-                    <a href="#projects" class="hero-btn">View Projects <i class="fas fa-arrow-down"></i></a>
-                    <a href="#contact" class="hero-btn secondary">Contact Me</a>
+                    <a href="#projects" class="btn">View Projects <i class="fas fa-arrow-down"></i></a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <a href="#game" class="btn btn-outline" id="play-game-btn">Play Game <i class="fas fa-gamepad"></i></a>
                 </div>
             </div>
         </div>
@@ -1352,101 +1664,109 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">My Projects</h2>
+            <h2 class="section-title">My Projects</h2>
+            <p class="section-subtitle">Here are some of my most notable Roblox projects that showcase my skills and creativity in game development.</p>
+            
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Adventure World</h3>
-                        <p class="project-desc">An adventure game with multiple levels and captivating missions.</p>
+                        <p class="project-desc">An immersive adventure game with multiple levels, challenging puzzles, and captivating storyline.</p>
                         <div class="project-tags">
                             <span class="project-tag">Adventure</span>
                             <span class="project-tag">RPG</span>
-                        </div>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-img">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Modern City</h3>
-                        <p class="project-desc">A modern city with detailed buildings and transport system.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">City</span>
-                            <span class="project-tag">Simulation</span>
-                        </div>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-img">
-                        <i class="fas fa-ghost"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Horror Mansion</h3>
-                        <p class="project-desc">An immersive horror experience with puzzles and survival elements.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Horror</span>
                             <span class="project-tag">Puzzle</span>
                         </div>
                         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Modern City</h3>
+                        <p class="project-desc">A detailed modern city with functional transportation system, businesses, and interactive elements.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">City</span>
+                            <span class="project-tag">Simulation</span>
+                            <span class="project-tag">Roleplay</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-ghost"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Horror Mansion</h3>
+                        <p class="project-desc">A spine-chilling horror experience with atmospheric environments, jump scares, and psychological elements.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Horror</span>
+                            <span class="project-tag">Puzzle</span>
+                            <span class="project-tag">Survival</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
                 <!-- Project 4 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-racing-car"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Extreme Racing</h3>
-                        <p class="project-desc">Extreme racing with customizable cars and obstacle-filled tracks.</p>
+                        <p class="project-desc">High-octane racing game with customizable vehicles, challenging tracks, and multiplayer competition.</p>
                         <div class="project-tags">
                             <span class="project-tag">Racing</span>
                             <span class="project-tag">Action</span>
+                            <span class="project-tag">Multiplayer</span>
                         </div>
                         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <!-- Project 5 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-medal"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Olympic Games</h3>
-                        <p class="project-desc">Olympic mini-games with multiple sports and competition system.</p>
+                        <p class="project-desc">A collection of mini-games based on Olympic sports with competitive leaderboards and realistic physics.</p>
                         <div class="project-tags">
                             <span class="project-tag">Sports</span>
                             <span class="project-tag">Competitive</span>
+                            <span class="project-tag">Multiplayer</span>
                         </div>
                         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <!-- Project 6 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-dragon"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Fantasy Realm</h3>
-                        <p class="project-desc">A fantasy world with magical creatures, wizards and epic journeys.</p>
+                        <p class="project-desc">An epic fantasy world with magical creatures, quests, and an expansive lore for players to explore.</p>
                         <div class="project-tags">
                             <span class="project-tag">Fantasy</span>
                             <span class="project-tag">RPG</span>
+                            <span class="project-tag">Adventure</span>
                         </div>
                         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1455,26 +1775,208 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <h2 class="section-title">My Skills</h2>
+            <p class="section-subtitle">I've developed a diverse set of skills that allow me to create engaging and innovative Roblox experiences.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Lua</span>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-gamepad"></i> Game Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Roblox Studio</span>
+                            <span class="skill-percentage">98%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="98"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Game Design</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-paint-brush"></i> Design</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">3D Modeling</span>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="82"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Graphic Design</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Animation</span>
+                            <span class="skill-percentage">78%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="78"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline section">
+        <div class="container">
+            <h2 class="section-title">My Journey</h2>
+            <p class="section-subtitle">A timeline of my development career and major milestones in my Roblox journey.</p>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2020</div>
+                        <h3 class="timeline-title">Started Roblox Development</h3>
+                        <p class="timeline-desc">Began learning Lua and Roblox Studio, creating my first simple games and experiences.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 2020</div>
+                        <h3 class="timeline-title">First Successful Game</h3>
+                        <p class="timeline-desc">Released "Obby Challenge" which reached 10,000 visits within the first month.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">March 2021</div>
+                        <h3 class="timeline-title">Joined Development Team</h3>
+                        <p class="timeline-desc">Became a scriptwriter for a popular Roblox roleplay game with over 1M visits.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">September 2021</div>
+                        <h3 class="timeline-title">First 100K Visit Game</h3>
+                        <p class="timeline-desc">"Horror Mansion" reached 100,000 visits and featured on Roblox front page.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2022</div>
+                        <h3 class="timeline-title">Started YouTube Channel</h3>
+                        <p class="timeline-desc">Began creating Roblox development tutorials, gaining over 5,000 subscribers.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Present</div>
+                        <h3 class="timeline-title">Full-time Development</h3>
+                        <p class="timeline-desc">Working on multiple projects with over 1M total visits across all games.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Learn more about my journey, passion, and expertise in Roblox game development.</p>
+            
             <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
+                <div class="about-text">
                     <h2>Passionate Roblox Developer</h2>
-                    <p>I'm a passionate Roblox developer with experience in creating immersive games and unique experiences. I love exploring new ideas and pushing the boundaries of creativity on the Roblox platform.</p>
-                    <p>Over time, I've developed multiple projects that have managed to attract thousands of players and positive feedback.</p>
+                    <p>I'm a dedicated Roblox developer with over 5 years of experience in creating immersive games and unique experiences. My journey began in 2020 when I discovered the power of Roblox Studio and the Lua programming language.</p>
+                    <p>Since then, I've developed multiple successful projects that have attracted thousands of players and received positive feedback from the community. I specialize in game mechanics, UI/UX design, and creating engaging gameplay experiences.</p>
+                    <p>When I'm not developing games, I enjoy creating tutorials to help others learn Roblox development and contribute to the growing community of creators.</p>
                     
                     <div class="about-stats">
-                        <div class="stat" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="stat">
                             <div class="stat-number">5+</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
-                        <div class="stat" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="stat-number">5+</div>
+                        <div class="stat">
+                            <div class="stat-number">12+</div>
                             <div class="stat-label">Projects</div>
                         </div>
-                        <div class="stat" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="stat">
                             <div class="stat-number">1M+</div>
                             <div class="stat-label">Total Players</div>
                         </div>
@@ -1485,11 +1987,13 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-subtitle">Have a project in mind or want to collaborate? Get in touch with me!</p>
+            
             <div class="contact-content">
-                <div class="contact-form" data-aos="fade-right">
+                <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -1500,13 +2004,17 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="form-btn">Send Message</button>
                     </form>
                 </div>
-                <div class="contact-info" data-aos="fade-left">
+                <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
@@ -1534,31 +2042,55 @@
                             <p>_.andreip._</p>
                         </div>
                     </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-roblox"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Roblox</h4>
+                            <p>AndreiTheScripter</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Game Section -->
-    <section id="game" class="game-section">
+    <section id="game" class="game-section section">
         <div class="container">
-            <h2 class="section-title">Color Switch Game</h2>
+            <h2 class="section-title">Roblox Runner</h2>
+            <p class="section-subtitle">A fun 2D platformer game inspired by Roblox obbies. Jump over obstacles and collect coins!</p>
+            
             <div class="game-container">
-                <h3 class="game-title">Click the Circle!</h3>
-                <p class="game-description">Click the circle when it turns green to earn points. Be careful not to click too early!</p>
+                <h3 class="game-title">Roblox Runner</h3>
+                <p class="game-description">Use arrow keys or WASD to move and jump. Avoid obstacles and collect as many coins as you can!</p>
                 
                 <div class="game-stats">
                     <div class="game-stat">Score: <span id="game-score">0</span></div>
+                    <div class="game-stat">Coins: <span id="coin-count">0</span></div>
                     <div class="game-stat">High Score: <span id="high-score">0</span></div>
                 </div>
                 
-                <div class="color-game" id="color-game" style="background-color: gray;">
-                    Wait...
+                <div class="game-canvas-container">
+                    <canvas id="game-canvas" width="800" height="400"></canvas>
                 </div>
                 
                 <div class="game-controls">
                     <button class="game-btn" id="start-game">Start Game</button>
                     <button class="game-btn secondary" id="reset-game">Reset</button>
+                    <button class="game-btn secondary" id="pause-game">Pause</button>
+                </div>
+                
+                <div class="game-instructions">
+                    <h3>How to Play</h3>
+                    <ul>
+                        <li><i class="fas fa-arrow-left"></i> Move Left: Left Arrow or A</li>
+                        <li><i class="fas fa-arrow-right"></i> Move Right: Right Arrow or D</li>
+                        <li><i class="fas fa-arrow-up"></i> Jump: Up Arrow or W or Spacebar</li>
+                        <li><i class="fas fa-star"></i> Collect coins for extra points</li>
+                        <li><i class="fas fa-skull"></i> Avoid obstacles to stay alive</li>
+                    </ul>
                 </div>
             </div>
             
@@ -1584,28 +2116,68 @@
                 <a href="#" class="social-link">
                     <i class="fab fa-youtube"></i>
                 </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
             <p class="copyright">© 2025 AndreiTheScripter's Portfolio. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-
         // Game variables
         let gameScore = 0;
+        let coinCount = 0;
         let highScore = 0;
         let gameActive = false;
-        let gameTimeout;
-        let gameColors = ['gray', 'red', 'yellow', 'green'];
-        let currentColorIndex = 0;
-        let gameSpeed = 2000; // Initial speed in milliseconds
+        let gamePaused = false;
+        
+        // Canvas and context
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Player properties
+        const player = {
+            x: 100,
+            y: 300,
+            width: 40,
+            height: 40,
+            speed: 5,
+            jumpForce: 15,
+            velocityY: 0,
+            jumping: false,
+            color: '#6e45e2'
+        };
+        
+        // Gravity
+        const gravity = 0.8;
+        
+        // Platforms
+        const platforms = [
+            { x: 0, y: 350, width: 800, height: 50, color: '#88d3ce' }
+        ];
+        
+        // Obstacles
+        let obstacles = [];
+        
+        // Coins
+        let coins = [];
+        
+        // Key states
+        const keys = {
+            right: false,
+            left: false,
+            up: false
+        };
+        
+        // Initialize AOS animation library
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        }
 
         // Hide loading screen after 4 seconds
         document.addEventListener('DOMContentLoaded', function() {
@@ -1622,6 +2194,9 @@
                 
                 // Initialize game
                 initGame();
+                
+                // Initialize skill animations
+                initSkillAnimations();
             }, 4000);
             
             // Header scroll effect
@@ -1719,6 +2294,13 @@
                 e.preventDefault();
                 showGameSection();
             });
+            
+            // Play game button
+            const playGameBtn = document.getElementById('play-game-btn');
+            playGameBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showGameSection();
+            });
         });
 
         // Create particles function
@@ -1760,6 +2342,17 @@
         // Settings functions
         function setTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
+            
+            // Update player color based on theme
+            if (theme === 'low-poly') {
+                player.color = '#FF6B6B';
+            } else if (theme === 'cartoon') {
+                player.color = '#FF9A3D';
+            } else if (theme === 'cyber') {
+                player.color = '#00F3FF';
+            } else {
+                player.color = '#6e45e2';
+            }
         }
         
         function updateThemeOptions(theme) {
@@ -1779,7 +2372,8 @@
                 notifications: document.getElementById('notifications-toggle').checked,
                 fontSize: document.getElementById('font-size').value,
                 gameDifficulty: document.getElementById('game-difficulty').value,
-                gameSound: document.getElementById('game-sound-toggle').checked
+                gameSound: document.getElementById('game-sound-toggle').checked,
+                particles: document.getElementById('particles-toggle').checked
             };
             
             localStorage.setItem('portfolioSettings', JSON.stringify(settings));
@@ -1799,6 +2393,7 @@
                 document.getElementById('font-size').value = settings.fontSize;
                 document.getElementById('game-difficulty').value = settings.gameDifficulty;
                 document.getElementById('game-sound-toggle').checked = settings.gameSound;
+                document.getElementById('particles-toggle').checked = settings.particles;
                 
                 // Apply settings to page
                 applySettings(settings);
@@ -1818,125 +2413,370 @@
             } else {
                 document.documentElement.style.setProperty('--transition-speed', '0s');
             }
+            
+            // Apply particles setting
+            const particles = document.getElementById('particles');
+            if (settings.particles) {
+                particles.style.display = 'block';
+            } else {
+                particles.style.display = 'none';
+            }
+        }
+        
+        // Skill animation function
+        function initSkillAnimations() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            });
         }
         
         // Game functions
         function initGame() {
             const startButton = document.getElementById('start-game');
             const resetButton = document.getElementById('reset-game');
-            const colorGame = document.getElementById('color-game');
+            const pauseButton = document.getElementById('pause-game');
             
             startButton.addEventListener('click', startGame);
             resetButton.addEventListener('click', resetGame);
-            colorGame.addEventListener('click', handleGameClick);
+            pauseButton.addEventListener('click', togglePause);
             
             // Load high score
-            const savedHighScore = localStorage.getItem('colorGameHighScore');
+            const savedHighScore = localStorage.getItem('platformerHighScore');
             if (savedHighScore) {
                 highScore = parseInt(savedHighScore);
                 document.getElementById('high-score').textContent = highScore;
             }
+            
+            // Keyboard event listeners
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = true;
+                if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') keys.left = true;
+                if ((e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W' || e.key === ' ') && !player.jumping) {
+                    keys.up = true;
+                    player.jumping = true;
+                    player.velocityY = -player.jumpForce;
+                }
+                if (e.key === 'p' || e.key === 'P') togglePause();
+            });
+            
+            document.addEventListener('keyup', function(e) {
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = false;
+                if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') keys.left = false;
+                if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W' || e.key === ' ') keys.up = false;
+            });
+            
+            // Initial render
+            render();
         }
         
         function startGame() {
             if (gameActive) return;
             
             gameActive = true;
+            gamePaused = false;
             gameScore = 0;
-            document.getElementById('game-score').textContent = gameScore;
-            document.getElementById('start-game').textContent = 'Playing...';
-            document.getElementById('start-game').disabled = true;
+            coinCount = 0;
             
-            // Start the color cycle
-            cycleColors();
+            document.getElementById('game-score').textContent = gameScore;
+            document.getElementById('coin-count').textContent = coinCount;
+            document.getElementById('start-game').textContent = 'Restart Game';
+            
+            // Reset player position
+            player.x = 100;
+            player.y = 300;
+            player.velocityY = 0;
+            player.jumping = false;
+            
+            // Generate obstacles and coins
+            generateObstacles();
+            generateCoins();
+            
+            // Start game loop
+            gameLoop();
         }
         
         function resetGame() {
-            // Clear any existing timeout
-            clearTimeout(gameTimeout);
-            
             gameActive = false;
+            gamePaused = false;
             gameScore = 0;
-            currentColorIndex = 0;
+            coinCount = 0;
             
             document.getElementById('game-score').textContent = gameScore;
+            document.getElementById('coin-count').textContent = coinCount;
             document.getElementById('start-game').textContent = 'Start Game';
-            document.getElementById('start-game').disabled = false;
             
-            const colorGame = document.getElementById('color-game');
-            colorGame.style.backgroundColor = 'gray';
-            colorGame.textContent = 'Wait...';
+            // Reset player position
+            player.x = 100;
+            player.y = 300;
+            player.velocityY = 0;
+            player.jumping = false;
+            
+            // Clear obstacles and coins
+            obstacles = [];
+            coins = [];
+            
+            // Render initial state
+            render();
         }
         
-        function cycleColors() {
+        function togglePause() {
             if (!gameActive) return;
             
-            currentColorIndex = (currentColorIndex + 1) % gameColors.length;
-            const color = gameColors[currentColorIndex];
-            const colorGame = document.getElementById('color-game');
+            gamePaused = !gamePaused;
+            document.getElementById('pause-game').textContent = gamePaused ? 'Resume' : 'Pause';
             
-            colorGame.style.backgroundColor = color;
+            if (!gamePaused) {
+                gameLoop();
+            }
+        }
+        
+        function gameLoop() {
+            if (!gameActive || gamePaused) return;
             
-            switch(color) {
-                case 'red':
-                    colorGame.textContent = 'Wait...';
-                    break;
-                case 'yellow':
-                    colorGame.textContent = 'Get Ready...';
-                    break;
-                case 'green':
-                    colorGame.textContent = 'CLICK NOW!';
-                    break;
-                default:
-                    colorGame.textContent = 'Wait...';
+            update();
+            render();
+            requestAnimationFrame(gameLoop);
+        }
+        
+        function update() {
+            // Move player
+            if (keys.right) player.x += player.speed;
+            if (keys.left) player.x -= player.speed;
+            
+            // Apply gravity
+            player.velocityY += gravity;
+            player.y += player.velocityY;
+            
+            // Check platform collision
+            let onGround = false;
+            for (const platform of platforms) {
+                if (
+                    player.x < platform.x + platform.width &&
+                    player.x + player.width > platform.x &&
+                    player.y + player.height > platform.y &&
+                    player.y + player.height <= platform.y + platform.height / 2 &&
+                    player.velocityY > 0
+                ) {
+                    player.y = platform.y - player.height;
+                    player.velocityY = 0;
+                    player.jumping = false;
+                    onGround = true;
+                }
             }
             
-            // Schedule next color change
-            gameTimeout = setTimeout(cycleColors, gameSpeed);
-        }
-        
-        function handleGameClick() {
-            if (!gameActive) return;
+            // Screen boundaries
+            if (player.x < 0) player.x = 0;
+            if (player.x > canvas.width - player.width) player.x = canvas.width - player.width;
             
-            if (gameColors[currentColorIndex] === 'green') {
-                // Successful click
-                gameScore++;
-                document.getElementById('game-score').textContent = gameScore;
+            // Update obstacles
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                obstacles[i].x -= obstacles[i].speed;
                 
-                if (gameScore > highScore) {
-                    highScore = gameScore;
-                    document.getElementById('high-score').textContent = highScore;
-                    localStorage.setItem('colorGameHighScore', highScore);
+                // Remove obstacles that are off-screen
+                if (obstacles[i].x + obstacles[i].width < 0) {
+                    obstacles.splice(i, 1);
+                    gameScore += 10;
+                    document.getElementById('game-score').textContent = gameScore;
                 }
                 
-                // Increase speed
-                gameSpeed = Math.max(500, gameSpeed - 100);
+                // Check collision with player
+                if (
+                    player.x < obstacles[i].x + obstacles[i].width &&
+                    player.x + player.width > obstacles[i].x &&
+                    player.y < obstacles[i].y + obstacles[i].height &&
+                    player.y + player.height > obstacles[i].y
+                ) {
+                    // Game over
+                    gameOver();
+                    return;
+                }
+            }
+            
+            // Update coins
+            for (let i = coins.length - 1; i >= 0; i--) {
+                coins[i].x -= coins[i].speed;
                 
-                // Visual feedback
-                const colorGame = document.getElementById('color-game');
-                colorGame.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    colorGame.style.transform = 'scale(1)';
-                }, 200);
-            } else {
-                // Failed click - end game
-                endGame();
+                // Remove coins that are off-screen
+                if (coins[i].x + coins[i].width < 0) {
+                    coins.splice(i, 1);
+                }
+                
+                // Check collision with player
+                if (
+                    player.x < coins[i].x + coins[i].width &&
+                    player.x + player.width > coins[i].x &&
+                    player.y < coins[i].y + coins[i].height &&
+                    player.y + player.height > coins[i].y
+                ) {
+                    // Collect coin
+                    coins.splice(i, 1);
+                    coinCount++;
+                    gameScore += 50;
+                    document.getElementById('coin-count').textContent = coinCount;
+                    document.getElementById('game-score').textContent = gameScore;
+                }
+            }
+            
+            // Generate new obstacles and coins
+            if (Math.random() < 0.02) {
+                generateObstacle();
+            }
+            
+            if (Math.random() < 0.01) {
+                generateCoin();
+            }
+            
+            // Check if player fell off the screen
+            if (player.y > canvas.height) {
+                gameOver();
             }
         }
         
-        function endGame() {
+        function render() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw background
+            ctx.fillStyle = '#1a1a2e';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw platforms
+            for (const platform of platforms) {
+                ctx.fillStyle = platform.color;
+                ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
+            }
+            
+            // Draw player
+            ctx.fillStyle = player.color;
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+            
+            // Draw obstacles
+            for (const obstacle of obstacles) {
+                ctx.fillStyle = obstacle.color;
+                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+            }
+            
+            // Draw coins
+            for (const coin of coins) {
+                ctx.fillStyle = '#FFD700';
+                ctx.beginPath();
+                ctx.arc(coin.x + coin.width / 2, coin.y + coin.height / 2, coin.width / 2, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = '#B8860B';
+                ctx.beginPath();
+                ctx.arc(coin.x + coin.width / 2, coin.y + coin.height / 2, coin.width / 4, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            // Draw score
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '20px Montserrat';
+            ctx.fillText('Score: ' + gameScore, 20, 30);
+            ctx.fillText('Coins: ' + coinCount, 20, 60);
+            
+            // Draw high score
+            ctx.fillText('High Score: ' + highScore, canvas.width - 200, 30);
+            
+            // Draw controls hint
+            if (!gameActive) {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '30px Montserrat';
+                ctx.textAlign = 'center';
+                ctx.fillText('ROBLOX RUNNER', canvas.width / 2, canvas.height / 2 - 50);
+                
+                ctx.font = '20px Montserrat';
+                ctx.fillText('Click Start Game to begin', canvas.width / 2, canvas.height / 2);
+                ctx.fillText('Use arrow keys or WASD to move and jump', canvas.width / 2, canvas.height / 2 + 40);
+                
+                ctx.textAlign = 'left';
+            }
+            
+            // Draw pause screen
+            if (gamePaused) {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '30px Montserrat';
+                ctx.textAlign = 'center';
+                ctx.fillText('GAME PAUSED', canvas.width / 2, canvas.height / 2);
+                
+                ctx.font = '20px Montserrat';
+                ctx.fillText('Press P or click Resume to continue', canvas.width / 2, canvas.height / 2 + 40);
+                
+                ctx.textAlign = 'left';
+            }
+        }
+        
+        function generateObstacles() {
+            obstacles = [];
+            
+            // Generate initial obstacles
+            for (let i = 0; i < 5; i++) {
+                generateObstacle();
+            }
+        }
+        
+        function generateObstacle() {
+            const width = 20 + Math.random() * 30;
+            const height = 20 + Math.random() * 50;
+            const x = canvas.width + (Math.random() * 300);
+            const y = 350 - height;
+            const speed = 3 + Math.random() * 3;
+            const color = '#ff7e5f';
+            
+            obstacles.push({ x, y, width, height, speed, color });
+        }
+        
+        function generateCoins() {
+            coins = [];
+            
+            // Generate initial coins
+            for (let i = 0; i < 3; i++) {
+                generateCoin();
+            }
+        }
+        
+        function generateCoin() {
+            const size = 15 + Math.random() * 10;
+            const x = canvas.width + (Math.random() * 300);
+            const y = 200 + Math.random() * 100;
+            const speed = 3 + Math.random() * 2;
+            
+            coins.push({ x, y, width: size, height: size, speed });
+        }
+        
+        function gameOver() {
             gameActive = false;
-            clearTimeout(gameTimeout);
             
-            const colorGame = document.getElementById('color-game');
-            colorGame.style.backgroundColor = 'red';
-            colorGame.textContent = 'Game Over!';
+            // Update high score
+            if (gameScore > highScore) {
+                highScore = gameScore;
+                document.getElementById('high-score').textContent = highScore;
+                localStorage.setItem('platformerHighScore', highScore);
+            }
             
-            document.getElementById('start-game').textContent = 'Play Again';
-            document.getElementById('start-game').disabled = false;
+            // Show game over screen
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            // Reset speed
-            gameSpeed = 2000;
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '30px Montserrat';
+            ctx.textAlign = 'center';
+            ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 50);
+            
+            ctx.font = '20px Montserrat';
+            ctx.fillText('Score: ' + gameScore, canvas.width / 2, canvas.height / 2);
+            ctx.fillText('High Score: ' + highScore, canvas.width / 2, canvas.height / 2 + 30);
+            ctx.fillText('Click Start Game to play again', canvas.width / 2, canvas.height / 2 + 80);
+            
+            ctx.textAlign = 'left';
         }
         
         function showGameSection() {
@@ -1945,6 +2785,9 @@
                 section.style.display = 'none';
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Reset and render game
+            resetGame();
         }
         
         function hideGameSection() {
@@ -1953,6 +2796,11 @@
                 section.style.display = 'block';
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Pause game if active
+            if (gameActive) {
+                gamePaused = true;
+            }
         }
     </script>
 </body>
